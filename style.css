@@ -8,7 +8,7 @@
 }
 
 body {
-    background: url('https://images4.alphacoders.com/746/746386.png') no-repeat center center/cover;
+    background: url('https://images4.alphacoders.com/746/746386.png') repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -18,7 +18,7 @@ body {
 
 .container {
     width: 60%;
-    height: 70%;
+    height: fit-content;
     padding: 1rem;
     border-radius: 0.5rem;
     box-shadow: 0 0 30px white;
@@ -125,4 +125,45 @@ input:focus {
 .task .deleteTask:hover {
     color: white;
     background-color: red;
+}
+
+/* responsive */
+
+@media screen and (max-width:426px) {
+    body {
+        align-items: flex-start;
+        background: url('https://w.forfun.com/fetch/dc/dc184e34ea065520477cbb998a9b7082.jpeg?download=anime-your_name-1277630.jpeg') repeat center center/cover;
+    }
+
+    .container {
+        margin-top: 2.5rem;
+        width: 90%;
+        padding: 1rem 0;
+    }
+
+    .add-task-container {
+        padding: 0 0.3rem;
+        margin: 1rem 0;
+    }
+
+    input {
+        font-size: 0.8rem;
+    }
+
+    #heading {
+        font-size: 2rem;
+    }
+
+    #task-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .task li {
+        font-size: 0.5rem;
+    }
+
+    .task button {
+        font-size: 1rem;
+    }
 }
