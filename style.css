@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-    width: 60%;
+    width: 70%;
     height: fit-content;
     padding: 1rem;
     border-radius: 0.5rem;
@@ -82,7 +82,6 @@ input:focus {
 
 .task {
     width: 100%;
-    overflow: auto;
     color: white;
     border-radius: 0.5rem;
     box-shadow: 0 0 5px white;
@@ -91,6 +90,7 @@ input:focus {
 }
 
 .task li {
+    overflow: auto;
     list-style-type: none;
     flex: 3;
     padding: 5px;
@@ -128,11 +128,27 @@ input:focus {
 }
 
 /* responsive */
+@media screen and (max-width:769px) {
+    body {
+        align-items: flex-start;
+    }
+
+    .container {
+        width: 90%;
+        margin-top: 5rem;
+    }
+
+    #task-container {
+        display: flex;
+        flex-direction: column;
+    }
+}
 
 @media screen and (max-width:426px) {
     body {
         align-items: flex-start;
         background: url('https://w.forfun.com/fetch/dc/dc184e34ea065520477cbb998a9b7082.jpeg?download=anime-your_name-1277630.jpeg') repeat center center/cover;
+        height: 100vh;
     }
 
     .container {
@@ -160,7 +176,7 @@ input:focus {
     }
 
     .task li {
-        font-size: 0.5rem;
+        font-size: 1rem;
     }
 
     .task button {

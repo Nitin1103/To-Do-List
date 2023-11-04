@@ -42,11 +42,7 @@ addTask.addEventListener('click', function () {
             checked = false;
         }
     });
-
-    deleteBtn.addEventListener('click', function (e) {
-
-        let target = e.target;
-        target.parentElement.parentElement.remove();
+    deleteBtn.addEventListener('click', function () {
+        task.remove();
     });
-
 });
