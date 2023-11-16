@@ -4,6 +4,32 @@ const addTask = document.getElementById('add-task');
 const taskContainer = document.getElementById('task-container');
 const inputTask = document.getElementById('input-task');
 
+document.addEventListener('DOMContentLoaded', loadTasks);
+
+
+// Function to load tasks from localStorage
+function loadTasks() {
+    const savedTasks = localStorage.getItem('tasks');
+
+    if (savedTasks) {
+        taskContainer.innerHTML = savedTasks;
+
+        // Reattach event listeners for delete buttons
+        const deleteButtons = document.querySelectorAll('.deleteTask');
+
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                button.parentElement.remove();
+                saveTasks(); // Save tasks after deletion
+            });
+        });
+    }
+}
+
+function saveTasks() {
+    localStorage.setItem('tasks', taskContainer.innerHTML);
+}
+
 addTask.addEventListener('click', function () {
     let task = document.createElement('div');
     task.classList.add('task');
@@ -27,6 +53,7 @@ addTask.addEventListener('click', function () {
     }
     else {
         taskContainer.appendChild(task);
+        saveTasks();
     }
     inputTask.value = "";
 
@@ -44,5 +71,6 @@ addTask.addEventListener('click', function () {
     });
     deleteBtn.addEventListener('click', function () {
         task.remove();
+        saveTasks(); // Save tasks after deletion
     });
 });
